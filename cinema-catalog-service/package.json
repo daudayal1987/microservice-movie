@@ -1,0 +1,19 @@
+{
+  "name": "cinema-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.21.3",
+    "http-status": "^1.4.2",
+    "mongodb": "^3.5.5",
+    "morgan": "^1.9.1"
+  }
+}
