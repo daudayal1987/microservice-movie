@@ -1,5 +1,5 @@
 #Node base image
-FROM node:12.16.1
+FROM node:12.14.0
 
 #Create new user
 RUN useradd --user-group --create-home --shell /bin/false movie-user
@@ -13,11 +13,8 @@ RUN apt-get update && \
     
 RUN npm install -g npm 
 
-#Set environment variables
-ENV HOME=/home/movie-user
-
 #Set working directory
-WORKDIR $HOME/app
+WORKDIR /usr/apps
 
 #COPY source files into image
 COPY package.json npm-shrinkwrap.json ./
@@ -27,7 +24,7 @@ COPY src/ ./src
 RUN npm install --production
 
 #Change content ownership to new user
-RUN chown -R movie-user:movie-user $HOME/* /usr/local/
+RUN chown -R movie-user:movie-user /usr/apps /usr/local/
 
 #Change user as new user
 USER movie-user

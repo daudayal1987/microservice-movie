@@ -1,4 +1,4 @@
-FROM node:12.16.1
+FROM node:12.14.0
 
 RUN useradd --user-group --create-home --shell /bin/false cinema-catalog-user
 
@@ -10,16 +10,14 @@ RUN apt-get update && \
 
 RUN npm install -g npm
 
-ENV HOME=/home/cinema-catalog-user
-
-WORKDIR $HOME/app
+WORKDIR /usr/apps
 
 COPY package.json package-lock.json ./
 COPY src/ ./src
 
 RUN npm install --production
 
-RUN chown -R cinema-catalog-user:cinema-catalog-user $HOME/* /usr/local/
+RUN chown -R cinema-catalog-user:cinema-catalog-user /usr/apps /usr/local/
 USER cinema-catalog-user
 
 EXPOSE 3002

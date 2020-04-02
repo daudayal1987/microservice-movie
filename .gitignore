@@ -1,0 +1,7 @@
+#cinema-catalog-service
+cinema-catalog-service/src/node_modules
+
+#movie-service
+movie-service/src/node_modules
+
+docker-compose.dev.yml
