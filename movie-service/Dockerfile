@@ -17,7 +17,7 @@ RUN npm install -g npm
 WORKDIR /usr/apps
 
 #COPY source files into image
-COPY package.json npm-shrinkwrap.json ./
+COPY package.json package-lock.json ./
 COPY src/ ./src
 
 #Install npm dependencies for code
